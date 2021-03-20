@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 23:32:46 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/20 18:10:27 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/20 18:51:45 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void		print_flag_c(va_list args, t_flags *flag, t_counter *count)
 
 void		print_flag_s(va_list args, t_flags *flag, t_counter *count)
 {
-		char *str;
+	char *str;
 
 	str = va_arg(args, char *);
 	flag->padding = ' ';

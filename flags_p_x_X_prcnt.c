@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:09:56 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/20 19:33:07 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/20 19:31:00 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,12 @@ void	print_padding_plus(t_flags *flag, t_counter *count)
 	flag->width = 0;
 }
 
-void		print_flag_p(va_list args, t_flags *flag, t_counter *count)
+int			print_flag_p(va_list args, t_flags *flag, t_counter *count)
 {
-	char *str;
+	char	*str;
+	int		i;
 
+	i = 0;
 	str = ft_itoa_hex(va_arg(args, unsigned long int));
 	if (flag->is_upper == 1)
 		str = ft_strupcase(str);
@@ -81,18 +83,17 @@ void		print_flag_p(va_list args, t_flags *flag, t_counter *count)
 		flag->padding = ' ';
 	flag->size = ft_strlen(str);
 	flag->size += 2;
-	if (str == NULL)
-		str = "(null)";
 	if (flag->dot == 1)
 	{
 		if (flag->precision < flag->size)
 		{
 			if (flag->dot == 1)
-			flag->padding = ' ';
+				flag->padding = ' ';
 			if (flag->dash == 0)
 				print_padding(flag, count);
 			ft_putstr(count, "0x");
-			ft_putstr(count, str);
+			if (str[i] != '0')
+				ft_putstr(count, str);
 			if (flag->dash == 1)
 				print_padding(flag, count);
 		}
@@ -124,6 +125,7 @@ void		print_flag_p(va_list args, t_flags *flag, t_counter *count)
 			ft_putstr(count, str);
 		}
 	}
+	return(1);
 	free(str);
 }
 
@@ -170,17 +172,6 @@ void		print_flag_x_X(va_list args, t_flags *flag, t_counter *count)
 				print_padding_width(flag, count);
 			}
 		}
-		// if (flag->precision > flag->size)
-		// {
-		// 	ft_putchar(count, '_');
-		// 	print_padding_precision(flag, count);
-		// 	ft_putstr_size(flag, count, str);
-		// 	if (flag->width > flag->precision)
-		// 	{
-		// 		flag->padding = ' ';
-		// 		print_padding_width(flag, count);
-		// 	}
-		
 	}
 	else
 	{
@@ -214,4 +205,3 @@ void		print_flag_prcnt(t_flags *flag, t_counter *count)
 	if (flag->dash == 1)
 		print_padding(flag, count);
 }
-

@@ -48,7 +48,7 @@ void		which_alpha(va_list args, t_flags *flag,
 	if (input[count->i] == '%')
 	{
 		flag->is_alpha = 1;
-		print_flag_prcnt(count);
+		print_flag_prcnt(flag, count);
 	}
 }
 
@@ -129,9 +129,23 @@ void		which_format(va_list args, t_counter *count, const char *input)
 		count->i++;
 		flag.dash = 1;
 	}
+	if (input[count->i] == '%')
+	{
+		if (flag.is_prcnt == 0)
+			flag.is_prcnt = 1;
+		else
+			print_flag_prcnt(&flag, count);
+	}
 	read_number(&flag, count, input);
 	flag.width = flag.read_number;
 	flag.read_number = 0;
+	if (input[count->i] == '%')
+	{
+		if (flag.is_prcnt == 0)
+			flag.is_prcnt = 1;
+		else
+			print_flag_prcnt(&flag, count);
+	}
 	is_it_dot(&flag, count, input);
 	is_it_star(args, &flag, count, input);
 	is_it_dot(&flag, count, input);

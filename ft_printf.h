@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:00:08 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/20 19:35:01 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/20 19:21:20 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct	s_flags
 	int						is_alpha;
 	int						is_hexa;
 	int						is_pntr;
+	int						is_prcnt;
 	int						is_upper;
 }				t_flags;
 
@@ -73,7 +74,7 @@ int			read_number_width(t_flags *flag, t_counter *count, const char *input);
 void		print_flag_c(va_list args, t_flags *flag, t_counter *count);
 void		print_flag_s(va_list args, t_flags *flag, t_counter *count);
 void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count);
-void		print_flag_p(va_list args, t_flags *flag, t_counter *count);
+int			print_flag_p(va_list args, t_flags *flag, t_counter *count);
 void		print_flag_x_X(va_list args, t_flags *flag, t_counter *count);
 void		print_flag_prcnt(t_flags *flag, t_counter *count);
 int			int_len(int num);
