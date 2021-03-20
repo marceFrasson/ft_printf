@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:00:08 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/18 11:40:43 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/20 18:16:56 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct	s_flags
 {
 	int						justify;
 	char					padding;
-	int						precision;
+	size_t					precision;
 	size_t					width;
 	int						dash;
 	int						zero;
@@ -36,6 +36,7 @@ typedef struct	s_flags
 	int						read_star;
 	size_t					size;
 	char					ch;
+	int						difference;
 	char					*str;
 	int						read_number_precision;
 	int						is_digit;
@@ -72,18 +73,21 @@ int			read_number_width(t_flags *flag, t_counter *count, const char *input);
 void		print_flag_c(va_list args, t_flags *flag, t_counter *count);
 void		print_flag_s(va_list args, t_flags *flag, t_counter *count);
 void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count);
-void		print_flag_p_x_X(va_list args, t_flags *flag, t_counter *count);
+void		print_flag_p(va_list args, t_flags *flag, t_counter *count);
+void		print_flag_x_X(va_list args, t_flags *flag, t_counter *count);
 void		print_flag_prcnt(t_counter *count);
 int			int_len(int num);
 int			unsgn_int_len(unsigned int num);
 void		ft_putchar(t_counter *count, char c);
 void		put_space(t_flags *flag, t_counter *count);
+char		*ft_substr(char const *str, unsigned int index, size_t size);
 void		ft_putstr(t_counter *count, char *str);
 int			ft_putnbr(t_counter *count, int n);
 int			ft_isdigit(int c);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 char		*ft_strupcase(char *str);
+void		ft_putstr_size(t_flags *flag, t_counter *count, char *str);
 void		ft_putstr_up(t_counter *count, char *str);
 void		ft_putstr_low(t_counter *count, char *str);
 void		ft_putcstr(t_counter *count, char *str, int size);
@@ -91,6 +95,9 @@ char		*ft_strchr(const char *str, int c);
 size_t		ft_strlen(const char *str);
 char		*ft_itoa_hex(unsigned long int number);
 void		print_padding(t_flags *flag, t_counter *count);
+void		print_padding_precision(t_flags *flag, t_counter *count);
+void		print_padding_width(t_flags *flag, t_counter *count);
+void		print_flag_s(va_list args, t_flags *flag, t_counter *count);
 void		init_flag(t_flags *flag);
 void		set_format(va_list args, t_flags *flag,
 							t_counter count, const char *input);

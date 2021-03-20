@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils_e.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/16 10:03:20 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/18 14:38:56 by mfrasson         ###   ########.fr       */
+/*   Created: 2021/03/19 12:48:58 by mfrasson          #+#    #+#             */
+/*   Updated: 2021/03/20 12:04:36 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int main(void)
+char	*ft_substr(char const *str, unsigned int index, size_t size)
 {
-	char *str = "was";
-	char *ch = "as";
-	
-	ft_printf("\n   pntr |%020p|   string |%10s|   char |%-10c|   prcnt |%%|   digit |%-015d|\n\n", &*ch, str, 'w', 465782);
-	
-	printf("   pntr |%020p|   string |%10s|   char |%-10c|   prcnt |%%|   digit |%-015d|\n\n", &*ch, str, 'w', 465782);
-	return (0);
-	//printf("   my %s and %p\n", ft_itoa_hex(&*str), &*str);
+	char	*substr;
+	size_t	i;
+
+	i = 0;
+	if (!(substr = (char *)malloc(sizeof(char) * size + 1)))
+		return (NULL);
+	if (!str || !substr)
+		return (NULL);
+	while ((i < size) && ((index + 1) < ft_strlen(str)) && (str[index + 1]))
+	{
+		substr[i] = str[index + i];
+		i++;
+	}
+	substr[i] = '\0';
+	return (substr);
 }

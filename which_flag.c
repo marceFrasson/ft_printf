@@ -60,10 +60,41 @@ void		which_hexa(va_list args, t_flags *flag,
 	{
 		flag->is_hexa = 1;
 		if (input[count->i] == 'p')
-			flag->is_pntr = 1;
-		if (input[count->i] == 'X')
-			flag->is_upper = 1;
-		print_flag_p_x_X(args, flag, count);
+			print_flag_p(args, flag, count);
+		else
+		{
+			if (input[count->i] == 'X')
+				flag->is_upper = 1;
+			print_flag_x_X(args, flag, count);
+		}
+	}
+}
+
+void		is_it_star(va_list args, t_flags *flag, t_counter *count, const char *input)
+{
+	if (input[count->i] == '*')
+	{
+		flag->read_star = va_arg(args, int);
+		if (input[count->i - 1] == '.')
+			flag->precision = flag->read_star + 2;
+		else
+			flag->width = flag->read_star;
+		flag->read_star = 0;
+		count->i++;
+	}
+}
+
+void		is_it_dot(t_flags *flag, t_counter *count, const char *input)
+{
+	if (input[count->i] == '.')
+	{
+		count->i++;
+		flag->dot = 1;
+		if (read_number(flag, count, input) == 1)
+		{
+			flag->precision = flag->read_number + 2;
+			flag->read_number = 0;
+		}
 	}
 }
 
@@ -97,24 +128,14 @@ void		which_format(va_list args, t_counter *count, const char *input)
 	{
 		count->i++;
 		flag.dash = 1;
-		if (read_number(&flag, count, input) == 1)
-			flag.width = flag.read_number;
 	}
 	read_number(&flag, count, input);
 	flag.width = flag.read_number;
-	if (input[count->i] == '.')
-	{
-		count->i++;
-		flag.dot = 1;
-		if (read_number(&flag, count, input) == 1)
-			flag.width = flag.read_number;
-	}
-	if (input[count->i] == '*')
-	{
-		count->i++;
-		flag.star = 1;
-		flag.read_star = va_arg(args, int);
-	}
+	flag.read_number = 0;
+	is_it_dot(&flag, count, input);
+	is_it_star(args, &flag, count, input);
+	is_it_dot(&flag, count, input);
+	is_it_star(args, &flag, count, input);
 	which_flag(args, &flag, count, input);
 	count->i++;
 }
