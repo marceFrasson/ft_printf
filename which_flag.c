@@ -86,8 +86,7 @@ void		is_it_star(va_list args, t_flags *flag, t_counter *count, const char *inpu
 	}
 }
 
-void		is_it_dot(va_list args, t_flags *flag,
-						t_counter *count, const char *input)
+void		is_it_dot(t_flags *flag, t_counter *count, const char *input)
 {
 	if (input[count->i] == '.')
 	{
@@ -162,9 +161,9 @@ void		which_format(va_list args, t_counter *count, const char *input)
 		else
 			print_flag_prcnt(&flag, count);
 	}
-	is_it_dot(args, &flag, count, input);
+	is_it_dot(&flag, count, input);
 	is_it_star(args, &flag, count, input);
-	is_it_dot(args, &flag, count, input);
+	is_it_dot(&flag, count, input);
 	is_it_star(args, &flag, count, input);
 	which_flag(args, &flag, count, input);
 	count->i++;
