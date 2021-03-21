@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:09:56 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 11:18:36 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 11:57:36 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void		print_padding_precision(t_flags *flag, t_counter *count)
 	{
 		ft_putchar(count, flag->padding);
 		flag->precision--;
-		flag->difference++;
 	}
 }
 
@@ -64,7 +63,6 @@ void	print_padding_plus(t_flags *flag, t_counter *count)
 	{
 		ft_putchar(count, flag->padding);
 		flag->width--;
-		count->len++;
 	}
 	flag->width = 0;
 }
