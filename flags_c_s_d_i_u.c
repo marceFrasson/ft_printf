@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 23:32:46 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 09:33:19 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 09:56:26 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,11 @@ void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
 		flag->padding = ' ';
 	flag->size = int_len(ch);
 	flag->precision -= 2;
+	if (flag->zero_size == 1)
+	{
+		flag->size = 0;
+		flag->precision = 0;
+	}
 	if (flag->dot == 0)
 	{
 		if (flag->dash == 0)

@@ -86,7 +86,8 @@ void		is_it_star(va_list args, t_flags *flag, t_counter *count, const char *inpu
 	}
 }
 
-void		is_it_dot(t_flags *flag, t_counter *count, const char *input)
+void		is_it_dot(va_list args, t_flags *flag,
+						t_counter *count, const char *input)
 {
 	if (input[count->i] == '.')
 	{
@@ -116,6 +117,10 @@ void		which_flag(va_list args, t_flags *flag,
 			input[count->i] == 'i' ||
 				input[count->i] == 'u')
 	{
+		if (input[count->i - 1] == '.')
+			flag->zero_size = 1;
+		if (input[count->i - 1] == '0')
+			flag->zero_size = 0;
 		flag->is_digit = 1;
 		print_flag_d_i_u(args, flag, count);
 	}
@@ -157,9 +162,9 @@ void		which_format(va_list args, t_counter *count, const char *input)
 		else
 			print_flag_prcnt(&flag, count);
 	}
-	is_it_dot(&flag, count, input);
+	is_it_dot(args, &flag, count, input);
 	is_it_star(args, &flag, count, input);
-	is_it_dot(&flag, count, input);
+	is_it_dot(args, &flag, count, input);
 	is_it_star(args, &flag, count, input);
 	which_flag(args, &flag, count, input);
 	count->i++;

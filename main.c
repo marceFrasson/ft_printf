@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:03:20 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 09:25:19 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 09:58:23 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ int main(void)
 
 	printf("\n\n");
 
-	// ft_printf("%.i", 0);
-	// printf("%.i", 0);	
+	ft_printf("|%.i|\n", 0);
+	printf("|%.i|", 0);	
 
-	// printf("\n\n");
+	printf("\n\n");
 
 	ft_printf("|%-5.0i|\n", 0);
 	printf("|%-5.0i|", 0);

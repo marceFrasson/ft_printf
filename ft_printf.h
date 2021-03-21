@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:00:08 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/20 20:40:36 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 09:45:01 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct	s_flags
 	int						star;
 	int						read_number;
 	int						read_star;
+	int						zero_size;
 	size_t					size;
 	char					ch;
 	int						difference;
