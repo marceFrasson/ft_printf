@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:00:08 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 11:08:12 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 16:37:27 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct	s_flags
 	int						is_pntr;
 	int						is_prcnt;
 	int						is_upper;
+	int						is_negative;
 }				t_flags;
 
 typedef struct	s_counter

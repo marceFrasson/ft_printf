@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:03:20 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 13:50:21 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 16:53:38 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int main(void)
 
 	printf("\n\n");
 
-	ft_printf("|%*s|\n", -32, "abc");
-	printf("|%*s|\n", -32, "abc");
+	ft_printf("|%.*i|\n", -6, -3);
+	printf("|%.*i|\n", -6, -3);
 
 	return (0);
 }
