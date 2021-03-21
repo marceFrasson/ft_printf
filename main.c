@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:03:20 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 08:35:36 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 08:38:39 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int main(void)
 	// ft_printf("\n   pntr |%05.25p|   string |%20.5s|   char |%020.4c|   prcnt |%0%|   digit |%010.15d|\n\n", &*str, str, 'w', 465782);
 	// ch = printf("   pntr |%05.25p|   string |%20.5s|   char |%020.4c|   prcnt |%0%|   digit |%010.15d|\n\n", &*str, str, 'w', 465782);
 
-	ft_printf("%.7s%.2s\n", "hello", "world");
-	printf("%.7s%.2s\n", "hello", "world");
+	ft_printf("%.7s %.2s\n", "hello", "world");
+	printf("%.7s %.2s\n", "hello", "world");
 
 	// printf("\n\n");
 
@@ -43,8 +43,8 @@ int main(void)
 
 	printf("\n\n");
 
-	ft_printf("%5.0i", 0);
-	printf("%5.0i", 0);	
+	ft_printf("|%5.0i|\n", 0);
+	printf("|%5.0i|", 0);	
 
 	printf("\n\n");
 
@@ -53,13 +53,13 @@ int main(void)
 
 	// printf("\n\n");
 
-	ft_printf("%-5.0i", 0);
+	ft_printf("|%-5.0i|\n", 0);
 	printf("%-5.0i", 0);
 
 	printf("\n\n");
 
-	ft_printf("'%0-8.5i'\n", 0);
-	printf("'%0-8.5i'", 0);
+	ft_printf("|%0-8.5i|\n", 0);
+	printf("|%0-8.5i|", 0);
 
 	return (0);
 }

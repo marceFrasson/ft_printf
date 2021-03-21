@@ -130,7 +130,7 @@ void		which_format(va_list args, t_counter *count, const char *input)
 	if (input[count->i] == '0')
 	{
 		count->i++;
-		if (input[count->i] != '-')
+		if (input[count->i] != '-' && input[count->i - 2] != '-')
 		{
 			flag.padding = '0';
 			flag.zero = 1;
