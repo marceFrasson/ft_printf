@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 23:32:46 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 08:57:22 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 09:16:04 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,8 @@ void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
 			print_padding_width(flag, count);
 			flag->padding = '0';
 			print_padding_precision(flag, count);
-			ft_putnbr(count, ch);
+			if (flag->read_number != 0)
+				ft_putnbr(count, ch);
 		}
 		if (flag->dash == 1)
 		{
