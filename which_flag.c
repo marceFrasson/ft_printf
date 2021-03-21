@@ -109,23 +109,14 @@ void		is_it_dot(t_flags *flag, t_counter *count, const char *input)
 	{
 		count->i++;
 		flag->dot = 1;
-		ft_putchar(count, '=');
-		ft_putnbr(count, flag->read_number);
-		ft_putchar(count, '=');
 		if (read_number(flag, count, input) == 1)
 		{
-			ft_putchar(count, '_');
-			ft_putnbr(count, flag->read_number);
-			ft_putchar(count, '_');
 			flag->precision = flag->read_number + 2;
 			flag->read_number = 0;
 			flag->read = 1;
 		}
 		if (input[count->i] == '%')
 		{
-			ft_putchar(count, '-');
-			ft_putnbr(count, flag->read_number);
-			ft_putchar(count, '-');
 			if (flag->read == 0)
 				ft_putchar(count, '%');
 			else

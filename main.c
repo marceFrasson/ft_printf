@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 10:03:20 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 13:27:31 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 11:35:49 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ int main(void)
 
 	printf("\n\n");
 
-	ft_printf("%%04.2i 42 == |%04.2i|\n", 42);
-	printf("%%04.2i 42 == |%04.2i|", 42);
+	ft_printf("|%0*i|\n", -7, -54);
+	printf("|%0*i|", -7, -54);
 
 	printf("\n\n");
 
-	ft_printf("%%05.2i 42 == |%05.2i|\n", 42);
-	printf("%%05.2i 42 == |%05.2i|\n", 42);
+	ft_printf("|%*s|\n", -32, "abc");
+	printf("|%*s|\n", -32, "abc");
 
 	return (0);
 }
