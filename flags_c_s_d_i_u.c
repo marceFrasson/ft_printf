@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 23:32:46 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 11:49:36 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 11:52:55 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,5 +143,5 @@ void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
 				ft_putchar(count, flag->padding);
 		}
 	}
-	count->len -= 1;
+	count->len += flag->size;
 }
