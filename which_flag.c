@@ -89,6 +89,7 @@ void		is_it_star(va_list args, t_flags *flag, t_counter *count, const char *inpu
 		{
 			flag->dash = 1;
 			flag->width = flag->read_star * -1;
+			flag->zero = 0;
 		}
 		flag->read_star = 0;
 		count->i++;
