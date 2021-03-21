@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 23:32:46 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 11:57:01 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 14:09:01 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
 	int temp;
 
 	ch = va_arg(args, int);
+
 	if (flag->zero == 1)
 		flag->padding = '0';
 	else

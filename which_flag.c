@@ -157,8 +157,8 @@ void		which_format(va_list args, t_counter *count, const char *input)
 			flag.zero = 1;
 		}
 		else
-			flag.padding = ' ';
 		read_number(&flag, count, input);
+		flag.width = flag.read_number;
 	}
 	if (input[count->i] == '-')
 	{
