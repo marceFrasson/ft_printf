@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:00:08 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 10:28:05 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 10:32:39 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void		put_space(t_flags *flag, t_counter *count);
 char		*ft_substr(char const *str, unsigned int index, size_t size);
 void		ft_putstr(t_counter *count, char *str);
 int			ft_putnbr(t_counter *count, int n);
+int			ft_putnbr_unsg(t_counter *count, int n);
 int			ft_isdigit(int c);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
