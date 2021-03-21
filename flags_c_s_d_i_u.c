@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 23:32:46 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/20 22:24:23 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 08:57:22 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void		print_flag_s(va_list args, t_flags *flag, t_counter *count)
 	char	*str;
 	int		temp;
 	
+	flag->precision -= 2;
 	str = va_arg(args, char *);
 	if (flag->zero == 1)
 		flag->padding = '0';
@@ -66,7 +67,10 @@ void		print_flag_s(va_list args, t_flags *flag, t_counter *count)
 		if (flag->size < flag->precision)
 			print_putstr(flag, count, str);
 		else
+		{
+			flag->size = flag->precision;
 			print_putstr_size(flag, count, str);
+		}
 	}
 	else
 	{
