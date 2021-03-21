@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 23:32:46 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/20 22:14:54 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/20 22:24:44 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ void		print_flag_c(va_list args, t_flags *flag, t_counter *count)
 	int ch;
 
 	ch = va_arg(args, int);
-	flag->padding = ' ';
+	if (flag->zero == 1)
+		flag->padding = '0';
+	else
+		flag->padding = ' ';
 	flag->size = 1;
 	if (flag->dash == 0)
 		print_padding(flag, count);
@@ -51,7 +54,10 @@ void		print_flag_s(va_list args, t_flags *flag, t_counter *count)
 	int		temp;
 	
 	str = va_arg(args, char *);
-	flag->padding = ' ';
+	if (flag->zero == 1)
+		flag->padding = '0';
+	else
+		flag->padding = ' ';
 	flag->size = ft_strlen(str);
 	if (str == NULL)
 		str = "(null)";
@@ -113,145 +119,7 @@ void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
 			if (flag->zero == 0)
 				flag->padding = ' ';
 			while (flag->width-- > flag->precision)
-			{
 				ft_putchar(count, flag->padding);
-				// flag->width--;
-			}
-			// flag->width = 0;
 		}
 	}
 }
-
-/*
-void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
-{
-	int ch;
-	int temp;
-
-	ch = va_arg(args, int);
-	if (flag->zero == 1)
-		flag->padding = '0';
-	else
-		flag->padding = ' ';
-	flag->size = int_len(ch);
-	if (flag->dash == 0)
-	{
-		if (flag->dot == 1)
-		{
-			flag->padding = ' ';
-			flag->width += 2;
-			if (flag->precision > flag->size)
-				while (flag->width-- > flag->precision)
-					ft_putchar(count, flag->padding);
-			else
-				while (flag->width-- > flag->size)
-					ft_putchar(count, flag->padding);
-			flag->padding = '0';
-			while (flag->precision - 2 > flag->size)
-			{
-				ft_putchar(count, flag->padding);
-				flag->precision--;
-				flag->difference++;
-			}
-			ft_putnbr(count, ch);
-		}
-		else
-		{
-			print_padding(flag, count);
-			ft_putnbr(count, ch);
-		}
-	}
-	else
-	{
-		if (flag->dot == 1)
-		{
-			flag->padding = '0';
-			temp = flag->precision;
-			print_padding_precision(flag, count);
-			flag->precision = temp;
-			ft_putnbr(count, ch);
-			flag->padding = ' ';
-			if (flag->width > flag->precision)
-			{
-				flag->padding = ' ';
-				if (flag->size == flag->precision + flag->difference)
-					while (flag->width-- > flag->precision)
-						ft_putchar(count, flag->padding);
-				if (flag->size > flag->precision + flag->difference)
-					while (--flag->width + 1 > flag->size)
-						ft_putchar(count, flag->padding);
-				if (flag->size < flag->precision + flag->difference)
-					while (--flag->width + 1 > flag->precision + flag->difference)
-						ft_putchar(count, flag->padding);
-			}
-		}
-		else
-		{
-			ft_putnbr(count, ch);
-			print_padding(flag, count);
-		}
-	}
-}/*/
-
-/*void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
-{
-	int ch;
-
-	ch = va_arg(args, int);
-	if (flag->zero == 1)
-		flag->padding = '0';
-	else
-		flag->padding = ' ';
-	flag->size = int_len(ch);
-	if (flag->dash == 0)
-	{
-		if (flag->dot == 1)
-		{
-			flag->padding = ' ';
-			if (flag->precision > flag->size)
-				while (flag->width-- > flag->precision)
-					ft_putchar(count, flag->padding);
-			else
-				while (flag->width-- > flag->size)
-					ft_putchar(count, flag->padding);
-			flag->padding = '0';
-			print_padding_precision(flag, count);
-			ft_putnbr(count, ch);
-		}
-		else
-		{
-			print_padding(flag, count);
-			ft_putnbr(count, ch);
-		}
-	}
-	if (flag->dash == 1)
-	{
-		if (flag->dot == 1)
-		{
-			flag->padding = '0';
-			print_padding_precision(flag, count);
-			ft_putnbr(count, ch);
-			flag->padding = ' ';
-			if (flag->width > flag->precision)
-			{
-				flag->padding = ' ';
-				if (flag->size == flag->precision + flag->difference)
-					while (flag->width-- > flag->precision)
-						ft_putchar(count, flag->padding);
-				if (flag->size > flag->precision + flag->difference)
-					while (--flag->width + 1 > flag->size)
-						ft_putchar(count, flag->padding);
-				if (flag->size < flag->precision + flag->difference)
-					while (--flag->width + 1 > flag->precision + flag->difference)
-						ft_putchar(count, flag->padding);
-			}
-		}
-		else
-		{
-			ft_putnbr(count, ch);
-			print_padding(flag, count);
-		}
-	}
-}
-
-*/
