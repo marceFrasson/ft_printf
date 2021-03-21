@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:00:08 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 10:32:39 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 11:08:12 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void		ft_putstr_low(t_counter *count, char *str);
 void		ft_putcstr(t_counter *count, char *str, int size);
 char		*ft_strchr(const char *str, int c);
 size_t		ft_strlen(const char *str);
-char		*ft_itoa_hex(unsigned long int number);
+char		*ft_itoa_hex(t_counter *count, unsigned long int number);
 void		print_padding(t_flags *flag, t_counter *count);
 void		print_padding_precision(t_flags *flag, t_counter *count);
 void		print_padding_width(t_flags *flag, t_counter *count);
