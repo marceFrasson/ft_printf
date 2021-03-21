@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 19:10:33 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/20 20:40:48 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 08:11:26 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,6 @@ void		init_flag(t_flags *flag)
 	flag->is_digit = 0;
 	flag->is_alpha = 0;
 	flag->is_hexa = 0;
-	flag->is_prcnt == 0;
+	flag->is_prcnt = 0;
 	flag->read = 0;
 }
