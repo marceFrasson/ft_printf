@@ -130,8 +130,13 @@ void		which_format(va_list args, t_counter *count, const char *input)
 	if (input[count->i] == '0')
 	{
 		count->i++;
-		flag.padding = '0';
-		flag.zero = 1;
+		if (input[count->i] != '-')
+		{
+			flag.padding = '0';
+			flag.zero = 1;
+		}
+		else
+			flag.padding = ' ';
 		read_number(&flag, count, input);
 	}
 	if (input[count->i] == '-')
