@@ -6,33 +6,11 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 18:06:11 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/18 11:39:31 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 11:02:52 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char		*ft_strchr(const char *str, int c)
-{
-	char	*str1;
-	int		i;
-
-	str1 = (char *)str;
-	i = 0;
-	while (str1[i])
-	{
-		if (str1[i] == c)
-		{
-			return (&str1[i]);
-		}
-		i++;
-	}
-	if (!c)
-	{
-		return (&str1[i]);
-	}
-	return (0);
-}
 
 size_t		ft_strlen(const char *str)
 {
