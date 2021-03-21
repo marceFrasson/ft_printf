@@ -139,7 +139,7 @@ void		which_format(va_list args, t_counter *count, const char *input)
 		count->i++;
 		flag.dash = 1;
 	}
-	if (read_number(&flag, count, input) == 1);
+	if (read_number(&flag, count, input) == 1)
 	{
 		flag.width = flag.read_number;
 		flag.read = 1;
