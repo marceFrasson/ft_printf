@@ -14,10 +14,10 @@
 
 int			read_number(t_flags *flag, t_counter *count, const char *input)
 {
-	// if (input[count->i] == 0 && flag->read_number == 0)
-	// {
-	// 	return (0);
-	// }
+	if (input[count->i] == 0 && flag->read_number == 0)
+	{
+		return (0);
+	}
 	if (ft_isdigit((int)input[count->i]))
 	{
 		while (ft_isdigit((int)input[count->i]))
