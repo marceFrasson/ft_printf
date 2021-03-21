@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 23:32:46 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 09:56:26 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 10:06:30 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ void		print_flag_s(va_list args, t_flags *flag, t_counter *count)
 	else
 		flag->padding = ' ';
 	flag->size = ft_strlen(str);
+	if (flag->zero_size == 1)
+	{
+		flag->size = 0;
+		flag->precision = 0;
+	}
 	if (str == NULL)
 		str = "(null)";
 	if (flag->dot == 1)

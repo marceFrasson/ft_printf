@@ -42,6 +42,10 @@ void		which_alpha(va_list args, t_flags *flag,
 	}
 	if (input[count->i] == 's')
 	{
+		if (input[count->i - 1] == '.')
+			flag->zero_size = 1;
+		if (input[count->i - 1] == '0')
+			flag->zero_size = 0;
 		flag->is_alpha = 1;
 		print_flag_s(args, flag, count);
 	}
@@ -58,6 +62,10 @@ void		which_hexa(va_list args, t_flags *flag,
 			print_flag_p(args, flag, count);
 		else
 		{
+			if (input[count->i - 1] == '.')
+				flag->zero_size = 1;
+			if (input[count->i - 1] == '0')
+				flag->zero_size = 0;
 			if (input[count->i] == 'X')
 				flag->is_upper = 1;
 			print_flag_x_X(args, flag, count);
