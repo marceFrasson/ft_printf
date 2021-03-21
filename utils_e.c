@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 12:48:58 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/20 20:11:08 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 10:27:40 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,26 @@ void		print_putstr_size(t_flags *flag, t_counter *count, char *str)
 	flag->size = flag->precision;
 	if (flag->dash == 1)
 		print_padding(flag, count);
+}
+
+int			ft_putnbr_unsg(t_counter *count, int n)
+{
+	unsigned	i;
+	int			j;
+
+	j = 1;
+	if (n < 0)
+	{
+		i = n * -1;
+		j++;
+	}
+	else
+		i = n;
+	if (i >= 10)
+	{
+		j += ft_putnbr(count, i / 10);
+		count->len++;
+	}
+	ft_putchar(count, (i % 10 + 48));
+	return (j);
 }

@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 23:32:46 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 10:06:30 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 10:29:47 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,11 +106,13 @@ void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
 		flag->size = 0;
 		flag->precision = 0;
 	}
+	if (ch < 0)
+		ft_putchar(count, '-');
 	if (flag->dot == 0)
 	{
 		if (flag->dash == 0)
 			print_padding(flag, count);
-		ft_putnbr(count, ch);
+		ft_putnbr_unsg(count, ch);
 		if (flag->dash == 1)
 			print_padding(flag, count);
 	}
@@ -122,7 +124,7 @@ void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
 			flag->padding = '0';
 			print_padding_precision(flag, count);
 			if (flag->precision != 0)
-				ft_putnbr(count, ch);
+				ft_putnbr_unsg(count, ch);
 		}
 		if (flag->dash == 1)
 		{
@@ -131,7 +133,7 @@ void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
 			print_padding_precision(flag, count);
 			flag->precision = temp;
 			if (flag->precision != 0)
-				ft_putnbr(count, ch);
+				ft_putnbr_unsg(count, ch);
 			if (flag->zero == 0)
 				flag->padding = ' ';
 			while (flag->width-- > flag->precision)
