@@ -45,11 +45,11 @@ void		which_alpha(va_list args, t_flags *flag,
 		flag->is_alpha = 1;
 		print_flag_s(args, flag, count);
 	}
-	if (input[count->i] == '%')
-	{
-		flag->is_alpha = 1;
-		print_flag_prcnt(flag, count);
-	}
+	// if (input[count->i] == '%')
+	// {
+	// 	flag->is_alpha = 1;
+	// 	print_flag_prcnt(flag, count);
+	// }
 }
 
 void		which_hexa(va_list args, t_flags *flag,
@@ -129,20 +129,14 @@ void		which_format(va_list args, t_counter *count, const char *input)
 		count->i++;
 		flag.dash = 1;
 	}
-	if (input[count->i] == '%')
-	{
-		if (flag.is_prcnt == 0)
-			flag.is_prcnt = 1;
-		else
-			print_flag_prcnt(&flag, count);
-	}
 	read_number(&flag, count, input);
 	flag.width = flag.read_number;
+	flag.read = 1;
 	flag.read_number = 0;
 	if (input[count->i] == '%')
 	{
-		if (flag.is_prcnt == 0)
-			flag.is_prcnt = 1;
+		if (flag.read == 0)
+			ft_putchar(count, '%');
 		else
 			print_flag_prcnt(&flag, count);
 	}

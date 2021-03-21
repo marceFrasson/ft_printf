@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 23:32:46 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/20 18:51:45 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/20 22:14:54 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,6 @@ void	print_padding(t_flags *flag, t_counter *count)
 		flag->width--;
 	}
 	flag->width = 0;
-}
-
-void		ft_putstr_size(t_flags *flag, t_counter *count, char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str)
-	{
-		while (flag->size--)
-		{
-			write(1, &str[i], 1);
-			i++;
-			count->len++;
-		}
-	}
 }
 
 void		print_putstr(t_flags *flag, t_counter *count, char *str)
@@ -63,8 +47,9 @@ void		print_flag_c(va_list args, t_flags *flag, t_counter *count)
 
 void		print_flag_s(va_list args, t_flags *flag, t_counter *count)
 {
-	char *str;
-
+	char	*str;
+	int		temp;
+	
 	str = va_arg(args, char *);
 	flag->padding = ' ';
 	flag->size = ft_strlen(str);
@@ -73,36 +58,142 @@ void		print_flag_s(va_list args, t_flags *flag, t_counter *count)
 	if (flag->dot == 1)
 	{
 		if (flag->size < flag->precision)
-		{
-			if (flag->dash == 0)
-				print_padding(flag, count);
-			ft_putstr(count, str);
-			if (flag->dash == 1)
-				print_padding(flag, count);
-		}
+			print_putstr(flag, count, str);
 		else
-		{
-			flag->size = flag->precision - 2;
-			if (flag->dash == 0)
-				print_padding(flag, count);
-			ft_putstr_size(flag, count, str);
-			flag->size = flag->precision;
-			if (flag->dash == 1)
-				print_padding(flag, count);
-		}
+			print_putstr_size(flag, count, str);
 	}
 	else
 	{
 		if (flag->dash == 0)
 			print_padding(flag, count);
+		temp = flag->size;
 		ft_putstr_size(flag, count, str);
-		flag->size = flag->precision;
+		flag->size = temp;
 		if (flag->dash == 1)
 			print_padding(flag, count);
 	}
 }
 
 void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
+{
+	int ch;
+	int temp;
+
+	ch = va_arg(args, int);
+	if (flag->zero == 1)
+		flag->padding = '0';
+	else
+		flag->padding = ' ';
+	flag->size = int_len(ch);
+	flag->precision -= 2;
+	if (flag->dot == 0)
+	{
+		if (flag->dash == 0)
+			print_padding(flag, count);
+		ft_putnbr(count, ch);
+		if (flag->dash == 1)
+			print_padding(flag, count);
+	}
+	else
+	{
+		if (flag->dash == 0)
+		{
+			print_padding_width(flag, count);
+			flag->padding = '0';
+			print_padding_precision(flag, count);
+			ft_putnbr(count, ch);
+		}
+		if (flag->dash == 1)
+		{
+			flag->padding = '0';
+			temp = flag->precision;
+			print_padding_precision(flag, count);
+			flag->precision = temp;
+			ft_putnbr(count, ch);
+			if (flag->zero == 0)
+				flag->padding = ' ';
+			while (flag->width-- > flag->precision)
+			{
+				ft_putchar(count, flag->padding);
+				// flag->width--;
+			}
+			// flag->width = 0;
+		}
+	}
+}
+
+/*
+void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
+{
+	int ch;
+	int temp;
+
+	ch = va_arg(args, int);
+	if (flag->zero == 1)
+		flag->padding = '0';
+	else
+		flag->padding = ' ';
+	flag->size = int_len(ch);
+	if (flag->dash == 0)
+	{
+		if (flag->dot == 1)
+		{
+			flag->padding = ' ';
+			flag->width += 2;
+			if (flag->precision > flag->size)
+				while (flag->width-- > flag->precision)
+					ft_putchar(count, flag->padding);
+			else
+				while (flag->width-- > flag->size)
+					ft_putchar(count, flag->padding);
+			flag->padding = '0';
+			while (flag->precision - 2 > flag->size)
+			{
+				ft_putchar(count, flag->padding);
+				flag->precision--;
+				flag->difference++;
+			}
+			ft_putnbr(count, ch);
+		}
+		else
+		{
+			print_padding(flag, count);
+			ft_putnbr(count, ch);
+		}
+	}
+	else
+	{
+		if (flag->dot == 1)
+		{
+			flag->padding = '0';
+			temp = flag->precision;
+			print_padding_precision(flag, count);
+			flag->precision = temp;
+			ft_putnbr(count, ch);
+			flag->padding = ' ';
+			if (flag->width > flag->precision)
+			{
+				flag->padding = ' ';
+				if (flag->size == flag->precision + flag->difference)
+					while (flag->width-- > flag->precision)
+						ft_putchar(count, flag->padding);
+				if (flag->size > flag->precision + flag->difference)
+					while (--flag->width + 1 > flag->size)
+						ft_putchar(count, flag->padding);
+				if (flag->size < flag->precision + flag->difference)
+					while (--flag->width + 1 > flag->precision + flag->difference)
+						ft_putchar(count, flag->padding);
+			}
+		}
+		else
+		{
+			ft_putnbr(count, ch);
+			print_padding(flag, count);
+		}
+	}
+}/*/
+
+/*void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
 {
 	int ch;
 
@@ -162,3 +253,5 @@ void		print_flag_d_i_u(va_list args, t_flags *flag, t_counter *count)
 		}
 	}
 }
+
+*/

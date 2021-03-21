@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:00:08 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/20 19:21:20 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/20 20:40:36 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct	s_flags
 	int						difference;
 	char					*str;
 	int						read_number_precision;
+	int						read;
 	int						is_digit;
 	int						is_alpha;
 	int						is_hexa;
@@ -99,6 +100,7 @@ void		print_padding(t_flags *flag, t_counter *count);
 void		print_padding_precision(t_flags *flag, t_counter *count);
 void		print_padding_width(t_flags *flag, t_counter *count);
 void		print_flag_s(va_list args, t_flags *flag, t_counter *count);
+void		print_putstr_size(t_flags *flag, t_counter *count, char *str);
 void		init_flag(t_flags *flag);
 void		set_format(va_list args, t_flags *flag,
 							t_counter count, const char *input);

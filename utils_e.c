@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 12:48:58 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/20 12:04:36 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/20 20:11:08 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,30 @@ char	*ft_substr(char const *str, unsigned int index, size_t size)
 	}
 	substr[i] = '\0';
 	return (substr);
+}
+
+void		ft_putstr_size(t_flags *flag, t_counter *count, char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str)
+	{
+		while (flag->size--)
+		{
+			write(1, &str[i], 1);
+			i++;
+			count->len++;
+		}
+	}
+}
+
+void		print_putstr_size(t_flags *flag, t_counter *count, char *str)
+{
+	if (flag->dash == 0)
+		print_padding(flag, count);
+	ft_putstr_size(flag, count, str);
+	flag->size = flag->precision;
+	if (flag->dash == 1)
+		print_padding(flag, count);
 }

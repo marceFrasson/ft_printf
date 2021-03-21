@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:09:56 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/20 19:31:00 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/20 20:49:11 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,11 +194,11 @@ void		print_flag_prcnt(t_flags *flag, t_counter *count)
 	char ch;
 
 	ch = '%';
+	flag->size = 1;
 	if (flag->zero == 1)
 		flag->padding = '0';
 	else
 		flag->padding = ' ';
-	flag->size = 1;
 	if (flag->dash == 0)
 		print_padding(flag, count);
 	ft_putchar(count, ch);
