@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 19:10:33 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 11:04:08 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 11:06:08 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	convert_to_hex(t_itoa_hex *aux, unsigned long int *number)
 	}
 }
 
-char		*ft_itoa_hex(t_counter count, unsigned long int number)
+char		*ft_itoa_hex(t_counter *count, unsigned long int number)
 {
 	t_itoa_hex	aux;
 

@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:09:56 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 10:57:44 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 11:06:31 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int			print_flag_p(va_list args, t_flags *flag, t_counter *count)
 	int		i;
 
 	i = 0;
-	str = ft_itoa_hex(va_arg(args, unsigned long int));
+	str = ft_itoa_hex(count, va_arg(args, unsigned long int));
 	if (flag->is_upper == 1)
 		str = ft_strupcase(str);
 	if (flag->zero == 1 || flag->dot == 1)
@@ -139,7 +139,7 @@ void		print_flag_x_X(va_list args, t_flags *flag, t_counter *count)
 	int		i;
 
 	i = 0;
-	str = ft_itoa_hex(va_arg(args, unsigned long int));
+	str = ft_itoa_hex(count, va_arg(args, unsigned long int));
 	if (flag->is_upper == 1)
 		str = ft_strupcase(str);
 	if (flag->zero == 1 || flag->dot == 1)
