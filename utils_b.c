@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 17:11:56 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 11:02:26 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 11:59:48 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int			ft_putnbr(t_counter *count, int n)
 	if (i >= 10)
 	{
 		j += ft_putnbr(count, i / 10);
-		count->len++;
 	}
 	ft_putchar(count, (i % 10 + 48));
 	return (j);
