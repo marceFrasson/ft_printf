@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:52:57 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 15:54:57 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 15:59:24 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ void		ft_putchar(t_counter *count, char c)
 void		put_space(t_flags *flag, t_counter *count)
 {
 	while (flag->size-- > 0)
-	{
 		ft_putchar(count, ' ');
-	}
 }
 
 void		ft_putstr(t_counter *count, char *str)
