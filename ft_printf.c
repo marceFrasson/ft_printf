@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 22:49:35 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 01:57:47 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 02:04:22 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void		which_flag(va_list args, t_flags *flag,
 }
 
 void		which_format(va_list args, t_counter *count, const char *input)
-{	
+{
 	t_flags flag;
-	
+
 	init_flag(&flag);
 	count->j = count->i;
 	while (input[count->j] == '0' || input[count->j] == '-')
@@ -83,10 +83,9 @@ void		which_format(va_list args, t_counter *count, const char *input)
 				flag.padding = ' ';
 			}
 		}
-		
+
 	}
 	which_flag(args, &flag, count, input);
-	count->j++;
 }
 
 int			ft_printf(const char *input, ...)
@@ -104,7 +103,6 @@ int			ft_printf(const char *input, ...)
 		{
 			count.i++;
 			which_format(args, &count, input);
-			count.j = 0;
 		}
 		else
 		{

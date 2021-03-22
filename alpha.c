@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   alpha.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:54:49 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 02:00:45 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 02:02:01 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ void		print_flag_c(t_flags *flag, t_counter *count, int ch)
 	ft_putchar(count, ch);
 	if (flag->dash == 1)
 		print_padding(flag, count, flag->width - 1);
+	count->i = count->j + 1;
 }
 
 void		print_flag_s(va_list args, t_flags *flag, t_counter *count)
 {
 	char	*str;
-	
+
 	str = va_arg(args, char *);
 	if (str == NULL)
 		str = "(null)";
@@ -39,4 +40,5 @@ void		print_flag_s(va_list args, t_flags *flag, t_counter *count)
 	ft_putstr(count, str, flag->precision);
 	if (flag->dash == 1)
 		print_padding(flag, count, flag->width - flag->precision);
+	count->i = count->j + 1;
 }

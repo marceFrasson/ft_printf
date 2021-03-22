@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   digit.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:54 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 01:59:35 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 02:02:13 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void		print_flag_d_i(va_list args, t_flags *flag, t_counter *count)
     }
     else
         print_padding(flag, count, flag->width - flag->precision);
+	count->i = count->j + 1;
 }
 
 void		print_flag_u(va_list args, t_flags *flag, t_counter *count)
@@ -68,4 +69,5 @@ void		print_flag_u(va_list args, t_flags *flag, t_counter *count)
     }
     else
         print_padding(flag, count, flag->width - flag->precision);
+	count->i = count->j + 1;
 }
