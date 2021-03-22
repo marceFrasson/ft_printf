@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:52:21 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 23:23:18 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 23:34:51 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int			ft_putnbr(t_counter *count, int n)
 	j = 1;
 	if (n < 0)
 	{
-		ft_putchar(count, '-');
 		i = n * -1;
 		j++;
 	}
