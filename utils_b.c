@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:52:21 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 23:36:58 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 01:11:51 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int			ft_putnbr(t_counter *count, int n)
 	return (j);
 }
 
-int			ft_putnbr_unsg(t_counter *count, int n)
+int			ft_putnbr_unsg(t_counter *count, unsigned int n)
 {
 	unsigned	i;
 	unsigned	j;
