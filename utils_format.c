@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:58:09 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 03:54:06 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 04:13:28 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int			read_number(t_flags *flag, t_counter *count, const char *input)
 		return (0);
 }
 
-void		is_it_star_a(va_list args, t_flags *flag,
-							t_counter *count, const char *input)
+void		is_it_star_a(t_flags *flag)
 {
 	if (flag->read_star < 0)
 	{
@@ -61,6 +60,6 @@ void		is_it_star(va_list args, t_flags *flag,
 		}
 	}
 	else
-		is_it_star_a(flag, count, input);
+		is_it_star_a(flag);
 	count->j++;
 }
