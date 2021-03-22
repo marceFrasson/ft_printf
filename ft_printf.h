@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:00:08 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 22:17:05 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 00:53:49 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int			int_len(int num);
 int			unsgn_int_len(unsigned int num);
 void		print_zero(t_counter *count, int len);
 
-char		*ft_itoa_hex(t_counter *count, unsigned long int number);
+char		*ft_itoa_hex(unsigned long int number);
 
 
 #endif

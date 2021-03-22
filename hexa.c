@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:25 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 00:35:44 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 00:54:08 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		print_flag_x_X(va_list args, t_flags *flag, t_counter *count, int ch)
 	int j;
 
 	j = 0;
-	str = ft_itoa_hex(count, va_arg(args, unsigned int));
+	str = ft_itoa_hex(va_arg(args, unsigned int));
 	if (!(*str == '0' && flag->precision == 0))
     {
 		if (ch)
@@ -46,7 +46,7 @@ void		print_flag_p(va_list args, t_flags *flag, t_counter *count)
 {
 	char *str;
 
-	str = ft_itoa_hex(count, va_arg(args, unsigned long int));
+	str = ft_itoa_hex(va_arg(args, unsigned long int));
 	if (!(*str == '0' && flag->precision == 0))
     {
         if (flag->precision < (int)ft_strlen(str))
