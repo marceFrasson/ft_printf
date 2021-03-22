@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 22:49:35 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 23:19:48 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 23:31:50 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void		which_format(va_list args, t_counter *count, const char *input)
 	{
 		if (input[count->i] == '0' && flag.dash == 0)
 		{
-			write(1, "*", 1);
 			flag.padding = '0';
 			flag.zero = 1;
 		}
@@ -111,6 +110,5 @@ int			ft_printf(const char *input, ...)
 		}
 	}
 	va_end(args);
-	count.i = 0;
 	return (count.len);
 }
