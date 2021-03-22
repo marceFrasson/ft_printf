@@ -6,36 +6,36 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:25 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 12:30:39 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 12:58:49 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char    	*ft_hconvert(unsigned long int nbr, char *base)
+char		*ft_hconvert(unsigned long int nbr, char *base)
 {
-    char                    *converted;
-    int                     base_len;
-    unsigned long int       i;
-    int                     size;
+	char					*converted;
+	int						base_len;
+	unsigned long int		i;
+	int						size;
 
-    base_len = ft_strlen(base);
-    i = nbr;
-    size = 1;
-    while (i /= base_len)
-        size++;
-    converted = (char *)malloc(size + 1);
-    if (converted == NULL)
-        return (NULL);
-    converted[size--] = '\0';
-    if (nbr == 0)
-        converted[size] = '0';
-    while (nbr > 0)
-    {
-        converted[size--] = base[nbr % base_len];
-        nbr /= base_len;
-    }
-    return (converted);
+	base_len = ft_strlen(base);
+	i = nbr;
+	size = 1;
+	while (i /= base_len)
+		size++;
+	converted = (char *)malloc(size + 1);
+	if (converted == NULL)
+		return (NULL);
+	converted[size--] = '\0';
+	if (nbr == 0)
+		converted[size] = '0';
+	while (nbr > 0)
+	{
+		converted[size--] = base[nbr % base_len];
+		nbr /= base_len;
+	}
+	return (converted);
 }
 
 void		print_flag_x_xl(va_list args, t_flags *flag,
