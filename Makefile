@@ -6,7 +6,7 @@
 #    By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/20 18:13:06 by mfrasson          #+#    #+#              #
-#    Updated: 2021/03/20 18:17:19 by mfrasson         ###   ########.fr        #
+#    Updated: 2021/03/21 21:11:29 by mfrasson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ RM		= /bin/rm -f
 
 NAME	= libftprintf.a
 
-SRCS	= flags_c_s_d_i_u.c flags_p_x_X_prcnt.c ft_printf.c utils_a.c \
-		utils_b.c utils_c.c utils_d.c utils_e.c which_flag.c
+SRCS	= alpha.c digit.c ft_itoa_hex.c ft_printf.c hexa.c utils_a.c \
+		utils_b.c utils_format.c
 
 OBJS	= $(SRCS:.c=.o)
 

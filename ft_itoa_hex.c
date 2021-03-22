@@ -1,33 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_d.c                                          :+:      :+:    :+:   */
+/*   ft_itoa_hex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/16 19:10:33 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 11:06:08 by mfrasson         ###   ########.fr       */
+/*   Created: 2021/03/21 20:54:12 by mfrasson          #+#    #+#             */
+/*   Updated: 2021/03/21 21:13:07 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void		ft_putstr_up(t_counter *count, char *str)
-{
-	int i;
-
-	i = 0;
-	if (str)
-	{
-		while (str[i])
-		{
-			str[i] = ft_toupper(str[i]);
-			write(1, &str[i], 1);
-			i++;
-			count->len++;
-		}
-	}
-}
 
 static void	invert_hex(t_itoa_hex *aux)
 {
@@ -78,27 +61,4 @@ char		*ft_itoa_hex(t_counter *count, unsigned long int number)
 	count->len += aux.length;
 	invert_hex(&aux);
 	return (aux.hex);
-}
-
-void		init_flag(t_flags *flag)
-{
-	flag->justify = 0;
-	flag->padding = 0;
-	flag->precision = 0;
-	flag->width = 0;
-	flag->dash = 0;
-	flag->zero = 0;
-	flag->dot = 0;
-	flag->star = 0;
-	flag->read_number = 0;
-	flag->read_star = 0;
-	flag->size = 0;
-	flag->ch = 0;
-	flag->str = NULL;
-	flag->read_number_precision = 0;
-	flag->is_digit = 0;
-	flag->is_alpha = 0;
-	flag->is_hexa = 0;
-	flag->is_prcnt = 0;
-	flag->read = 0;
 }

@@ -5,12 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 14:52:57 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 11:02:10 by mfrasson         ###   ########.fr       */
+/*   Created: 2021/03/21 20:46:34 by mfrasson          #+#    #+#             */
+/*   Updated: 2021/03/21 22:16:53 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int			ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
 
 int			int_len(int num)
 {
@@ -27,6 +32,34 @@ int			int_len(int num)
 	return (i);
 }
 
+size_t		ft_strlen(const char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+int			ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
+}
+
+void		init_flag(t_flags *flag)
+{
+	flag->padding = ' ';
+	flag->precision = -1;
+	flag->width = 0;
+	flag->dash = 0;
+	flag->zero = 0;
+	flag->read_number = 0;
+	flag->read_star = 0;
+}
+
 int			unsgn_int_len(unsigned int num)
 {
 	unsigned int i;
@@ -40,33 +73,11 @@ int			unsgn_int_len(unsigned int num)
 	return (i);
 }
 
-void		ft_putchar(t_counter *count, char c)
+void		print_zero(t_counter *count, int len)
 {
-	write(1, &c, 1);
-	count->len++;
-}
-
-void		put_space(t_flags *flag, t_counter *count)
-{
-	while (flag->size-- > 0)
+	while (len--)
 	{
-		ft_putchar(count, ' ');
+		write(1, "0", 1);
 		count->len++;
-	}
-}
-
-void		ft_putstr(t_counter *count, char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str)
-	{
-		while (str[i])
-		{
-			write(1, &str[i], 1);
-			i++;
-			count->len++;
-		}
 	}
 }
