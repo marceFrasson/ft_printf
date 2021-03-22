@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 22:49:35 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 22:40:26 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 22:48:05 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,16 @@ void		which_format(va_list args, t_counter *count, const char *input)
 				flag.padding = ' ';
 			}
 		}
+		else
+		{
+			flag.precision = 0;
+			if (count->i + 1 != '%')
+			{
+				flag.zero = 0;
+				flag.padding = ' ';
+			}
+		}
+		
 	}
 	which_flag(args, &flag, count, input);
 	count->i++;
