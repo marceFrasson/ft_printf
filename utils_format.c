@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_format.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:58:09 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 01:48:33 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/03/22 02:59:39 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void		is_it_star(va_list args, t_flags *flag, t_counter *count, const char *inpu
 		if (flag->read_star >= 0)
 		{
 			flag->precision = flag->read_star;
-			if (count->j + 1 != '%')
+			if (input[count->j + 1] != '%')
 			{
 				flag->zero = 0;
 				flag->padding = ' ';
