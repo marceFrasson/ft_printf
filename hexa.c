@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:25 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 00:54:08 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 00:57:41 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,19 @@ void		print_flag_p(va_list args, t_flags *flag, t_counter *count)
 		{
 			if (flag->zero == 1)
 				ft_putstr(count, "0x", 2);
-			print_padding(flag, count, flag->width - flag->precision);
+			print_padding(flag, count, flag->width - flag->precision - 2);
 		}
 		if (flag->zero == 0)
 			ft_putstr(count, "0x", 2);
 		print_zero(count, flag->precision - ft_strlen(str));
 		ft_putstr(count, str, ft_strlen(str));
 		if (flag->dash == 1)
-			print_padding(flag, count, flag->width - flag->precision);
+			print_padding(flag, count, flag->width - flag->precision - 2);
     }
     else
 	{
 		ft_putstr(count, "0x", 2);
-        print_padding(flag, count, flag->width - flag->precision);
+        print_padding(flag, count, flag->width - flag->precision - 2);
 	}
 	free(str);
 }
