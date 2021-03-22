@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:00:08 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 01:10:18 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 01:51:36 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct	s_flags
 typedef struct	s_counter
 {
 	int						i;
+	int						j;
 	int						len;
 }				t_counter;
 
