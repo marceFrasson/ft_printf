@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:46:34 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 22:16:53 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 23:24:20 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,13 @@ int			unsgn_int_len(unsigned int num)
 
 void		print_zero(t_counter *count, int len)
 {
-	while (len--)
+	int i;
+
+	i = 0;
+	while (i < len)
 	{
 		write(1, "0", 1);
 		count->len++;
+		i++;
 	}
 }

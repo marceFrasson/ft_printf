@@ -43,8 +43,8 @@ int        main(void)
     char c = 'a'; //caracter
     char *s = "palavra - palavra - palavra"; //ponteiro de string
 
-    int d = 8; //inteiro
-    int i = d; //inteiro
+    int d = -32; //inteiro
+    int i = -8; //inteiro
     unsigned int u = 300564; //insine int
 
     int x = -56; //hexadecimal
@@ -53,33 +53,46 @@ int        main(void)
 
     int width = 20;
     int press = 10;
-/* 
-    printf(" -- %d\n",ft_printf("c = |%*c|",width,c)-6);
-    printf(" -- %d\n\n",printf("c = |%*c|",width,c)-6);
 
-     printf(" -- %d\n",ft_printf("s = |%*.*s|",width,press,s)-6);
-    printf(" -- %d\n\n",printf("s = |%*.*s|",width,press,s)-6);
+    // printf(" -- %d\n",ft_printf("c = |%*c|",width,c)-6);
+    // printf(" -- %d\n\n",printf("c = |%*c|",width,c)-6);
 
-     printf(" -- %d\n",ft_printf("s = |%*.*s|",width,press,NULL)-6);
-    printf(" -- %d\n\n",printf("s = |%*.*s|",width,press,NULL)-6);
+    //  printf(" -- %d\n",ft_printf("s = |%*.*s|",width,press,s)-6);
+    // printf(" -- %d\n\n",printf("s = |%*.*s|",width,press,s)-6);
 
-    printf(" -- %d\n",ft_printf("d = |%*.*d|",width,press,d)-6);
-     printf(" -- %d\n\n",printf("d = |%*.*d|",width,press,d)-6);
+    //  printf(" -- %d\n",ft_printf("s = |%*.*s|",width,press,NULL)-6);
+    // printf(" -- %d\n\n",printf("s = |%*.*s|",width,press,NULL)-6);
 
-    printf(" -- %d\n",ft_printf("i = |%*.*i|",width,press,i)-6);
-     printf(" -- %d\n\n",printf("i = |%*.*i|",width,press,i)-6);
+    // printf(" -- %d\n",ft_printf("d = |%*.*d|",width,press,d)-6);
+    //  printf(" -- %d\n\n",printf("d = |%*.*d|",width,press,d)-6);
 
-    printf(" -- %d\n",ft_printf("u = |%*.*u|",width,press,u)-6);
-    printf(" -- %d\n\n",printf("u = |%*.*u|",width,press,u)-6);
+    // printf(" -- %d\n",ft_printf("i = |%*.*i|",width,press,i)-6);
+    //  printf(" -- %d\n\n",printf("i = |%*.*i|",width,press,i)-6);
 
-    printf(" -- %d\n",ft_printf("x = |%*.*x|",width,press,x)-6);
-    printf(" -- %d\n\n",printf("x = |%*.*x|",width,press,x)-6);
+    // printf(" -- %d\n",ft_printf("u = |%*.*u|",width,press,u)-6);
+    // printf(" -- %d\n\n",printf("u = |%*.*u|",width,press,u)-6);
 
-    printf(" -- %d\n",ft_printf("X = |%*.*X|",width,press,X)-6);
-    printf(" -- %d\n\n",printf("X = |%*.*X|",width,press,X)-6); */
+    // printf(" -- %d\n",ft_printf("x = |%*.*x|",width,press,x)-6);
+    // printf(" -- %d\n\n",printf("x = |%*.*x|",width,press,x)-6);
+
+    // printf(" -- %d\n",ft_printf("X = |%*.*X|",width,press,X)-6);
+    // printf(" -- %d\n\n",printf("X = |%*.*X|",width,press,X)-6);
 
     printf(" -- %d\n",ft_printf("|%03.3i|", 6983)-2);
     printf(" -- %d\n\n",printf("|%03.3i|", 6983)-2);
+
+	// printf(" -- %d\n",ft_printf("|%03.3i|", 6983)-2);
+    // printf(" -- %d\n\n",printf("|%03.3i|", 6983)-2);
+
+	// printf(" -- %d\n",ft_printf("|%03.3i|", 6983)-2);
+    // printf(" -- %d\n\n",printf("|%03.3i|", 6983)-2);
+
+	// printf(" -- %d\n",ft_printf("|%03.3i|", 6983)-2);
+    // printf(" -- %d\n\n",printf("|%03.3i|", 6983)-2);
+
+	/* printf(" -- %d\n",ft_printf("|%-05")-2);
+    printf(" -- %d\n\n",printf("|%-05")-2); */
+	
 
 	return(0);
 }

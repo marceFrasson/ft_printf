@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:52:21 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 22:08:46 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 23:23:18 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,14 @@ void		ft_putchar(t_counter *count, char c)
 
 void		print_padding(t_flags *flag, t_counter *count, int len)
 {
-	while (len--)
+	int i;
+
+	i = 0;
+	while (i < len)
+	{
 		ft_putchar(count, flag->padding);
+		i++;
+	}
 }
 
 int			ft_putnbr(t_counter *count, int n)
