@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:25 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 22:16:24 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 22:23:49 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void		print_flag_x_X(va_list args, t_flags *flag, t_counter *count, int ch)
 		if (ch)
 			while (str[j] != '\0' && ++j)
 				str[j - 1] = ft_toupper(str[j - 1]);
-        if (flag->precision < ft_strlen(str))
+        if (flag->precision < (int)ft_strlen(str))
             flag->precision = ft_strlen(str);
         if (flag->width < flag->precision)
             flag->width = flag->precision;
