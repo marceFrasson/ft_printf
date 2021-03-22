@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 22:49:35 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 03:56:34 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 04:06:22 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void		which_flag(va_list args, t_flags *flag,
 		ft_putchar(count, '%');
 }
 
-void		which_format_a(va_list args, t_counter *count, const char *input)
+void		which_format_a(va_list args, t_flags *flag,
+								t_counter *count, const char *input)
 {
 	if (input[count->j] == '.')
 	{
@@ -44,20 +45,20 @@ void		which_format_a(va_list args, t_counter *count, const char *input)
 			is_it_star(args, &flag, count, input);
 		else if (read_number(&flag, count, input) == 1)
 		{
-			flag.precision = flag.read_number;
+			flag->precision = flag->read_number;
 			if (input[count->j] != '%')
 			{
-				flag.zero = 0;
-				flag.padding = ' ';
+				flag->zero = 0;
+				flag->padding = ' ';
 			}
 		}
 		else
 		{
-			flag.precision = 0;
+			flag->precision = 0;
 			if (input[count->j] != '%')
 			{
-				flag.zero = 0;
-				flag.padding = ' ';
+				flag->zero = 0;
+				flag->padding = ' ';
 			}
 		}
 	}
