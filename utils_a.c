@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:46:34 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 23:24:20 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 02:35:16 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void		init_flag(t_flags *flag)
 {
 	flag->padding = ' ';
 	flag->precision = -1;
+	flag->is_negative = 0;
 	flag->width = 0;
 	flag->dash = 0;
 	flag->zero = 0;

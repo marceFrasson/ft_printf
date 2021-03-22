@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:54:12 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 00:53:16 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 02:44:19 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char		*ft_itoa_hex(unsigned long int number)
 	t_itoa_hex	aux;
 
 	aux.length = int_len(number);
-	if (!(aux.hex = (char *)malloc((aux.length + 1) * sizeof(char))))
+	if (!(aux.hex = (char *)malloc((aux.length + 6) * sizeof(char))))
 		return (NULL);
 	aux.case_c = 87;
 	if (number == 0)
