@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:25 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 04:10:39 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 04:23:27 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		print_flag_x_xl(va_list args, t_flags *flag,
 	count->i = count->j + 1;
 }
 
-void		print_flag_p_a(t_flags *flag, t_counter *count, char *str)
+static void	print_flag_p_a(t_flags *flag, t_counter *count, char *str)
 {
 	if (flag->dash == 0)
 	{
