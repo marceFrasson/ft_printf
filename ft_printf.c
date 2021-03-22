@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 22:49:35 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 04:06:22 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 04:08:04 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void		which_format_a(va_list args, t_flags *flag,
 	{
 		count->j++;
 		if (input[count->j] == '*')
-			is_it_star(args, &flag, count, input);
-		else if (read_number(&flag, count, input) == 1)
+			is_it_star(args, flag, count, input);
+		else if (read_number(flag, count, input) == 1)
 		{
 			flag->precision = flag->read_number;
 			if (input[count->j] != '%')
@@ -89,7 +89,7 @@ void		which_format(va_list args, t_counter *count, const char *input)
 		is_it_star(args, &flag, count, input);
 	else if (read_number(&flag, count, input) == 1)
 		flag.width = flag.read_number;
-	which_format_a(args, &flag, count);
+	which_format_a(args, &flag, count, input);
 	which_flag(args, &flag, count, input);
 }
 
