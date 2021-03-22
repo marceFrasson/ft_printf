@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:25 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 11:54:02 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 12:30:39 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		print_flag_x_xl(va_list args, t_flags *flag,
 	int		j;
 
 	j = 0;
-	str = ft_hconvert(va_arg(args, unsigned long int), HEX_LOWER);
+	str = ft_hconvert(va_arg(args, unsigned int), HEX_LOWER);
 	if (!(*str == '0' && flag->precision == 0))
 	{
 		if (ch)

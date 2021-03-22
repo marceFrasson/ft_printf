@@ -21,6 +21,26 @@ int        main(void)
     int width = 20;
     int press = 10;
 
+
+	ft_printf("|%-*.*d|\n ", 4, 5, 10, 10, 21, -10);
+	   printf("|%-*.*d|\n ", 4, 5, 10, 10, 21, -10);
+	printf("\n");
+	ft_printf("|%-*.*d|\n ", 6, 2, 102, 10, 21, -101);
+	   printf("|%-*.*d|\n ", 6, 2, 102, 10, 21, -101);
+	printf("\n");
+	ft_printf("|%*.*d|\n ", -6, 2, 102, 10, 21, 101);
+	   printf("|%*.*d|\n ", -6, 2, 102, 10, 21, 101);
+	printf("\n");
+	ft_printf("|%0-*.*x|\n ", 6, 2, 102, 10, 21, -101);
+	   printf("|%0-*.*x|\n ", 6, 2, 102, 10, 21, -101);
+	printf("\n");
+	ft_printf("|%0-*.*x|\n ", 2, 6, 102, 21, 10, -101);
+	   printf("|%0-*.*x|\n ", 2, 6, 102, 21, 10, -101);
+	printf("\n");
+	ft_printf("|%0*.0p|\n ", -21, 9223372036854775807);
+	   printf("|%0*.0p|\n ", -21, 9223372036854775807);
+	printf("\n");
+
     // printf(" -- %d\n",ft_printf("c = |%*c|",width,c)-6);
     // printf(" -- %d\n\n",printf("c = |%*c|",width,c)-6);
 
@@ -35,8 +55,8 @@ int        main(void)
 
 	
 
-    printf(" -- %d\n",ft_printf(" --0*%0*.10i*0-- ", -41, INT_MIN));
-     printf(" -- %d\n\n",printf(" --0*%0*.10i*0-- ", -41, INT_MIN));
+    // printf(" -- %d\n",ft_printf(" --0*%0*.10i*0-- ", -41, INT_MIN));
+    //  printf(" -- %d\n\n",printf(" --0*%0*.10i*0-- ", -41, INT_MIN));
 
 	// printf(" -- %d\n",ft_printf("|%p %p|", 18446744073709551616, -18446744073709551616));
     //  printf(" -- %d\n\n",printf("|%p %p|", 18446744073709551616, -18446744073709551616));
