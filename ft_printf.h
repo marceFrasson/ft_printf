@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:00:08 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 11:47:50 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 12:03:37 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdarg.h>
 # include <stdint.h>
 # include <string.h>
+# include <limits.h>
 
 # define HEX_UPPER    "0123456789ABCDEF"
 # define HEX_LOWER    "0123456789abcdef"

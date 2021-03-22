@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "ft_printf.h"
-#include <limits.h>
 
 
 int        main(void)
@@ -34,8 +33,10 @@ int        main(void)
     // printf(" -- %d\n",ft_printf("d = |%*.*d|",width,press,d)-6);
     //  printf(" -- %d\n\n",printf("d = |%*.*d|",width,press,d)-6);
 
-    printf(" -- %d\n",ft_printf("| %*p %-*p| ", -10, 101, -10, 42));
-     printf(" -- %d\n\n",printf("| %*p %-*p| ", -10, 101, -10, 42));
+	
+
+    printf(" -- %d\n",ft_printf(" --0*%0*.10i*0-- ", -41, INT_MIN));
+     printf(" -- %d\n\n",printf(" --0*%0*.10i*0-- ", -41, INT_MIN));
 
 	// printf(" -- %d\n",ft_printf("|%p %p|", 18446744073709551616, -18446744073709551616));
     //  printf(" -- %d\n\n",printf("|%p %p|", 18446744073709551616, -18446744073709551616));

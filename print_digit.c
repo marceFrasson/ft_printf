@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:54 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 04:02:36 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 12:04:06 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void		print_flag_d_i(va_list args, t_flags *flag, t_counter *count)
 	int ch;
 
 	ch = va_arg(args, int);
+	if (ch == INT_MIN)
+		flag->width++;
 	if (ch < 0)
 	{
 		ch *= -1;
