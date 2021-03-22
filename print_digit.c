@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   digit.c                                            :+:      :+:    :+:   */
+/*   print_digit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:54 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 03:50:54 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 04:02:36 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		print_flag_d_i_a(t_flags *flag, t_counter *count)
+void		print_flag_d_i_a(t_flags *flag, t_counter *count, int ch)
 {
 	if (flag->dash == 0)
 	{
@@ -47,7 +47,7 @@ void		print_flag_d_i(va_list args, t_flags *flag, t_counter *count)
 			flag->width = flag->precision;
 		if (flag->is_negative)
 			flag->width -= 1;
-		print_flag_d_i_a(flag, count);
+		print_flag_d_i_a(flag, count, ch);
 	}
 	else
 		print_padding(flag, count, flag->width - flag->precision);
