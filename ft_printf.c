@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 22:49:35 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 01:56:44 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 01:57:47 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int			ft_printf(const char *input, ...)
 		{
 			count.i++;
 			which_format(args, &count, input);
-			count->j = 0;
+			count.j = 0;
 		}
 		else
 		{
