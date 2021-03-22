@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:00:08 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 00:53:49 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 01:10:18 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void		print_flag_p(va_list args, t_flags *flag, t_counter *count);
 void		ft_putchar(t_counter *count, char c);
 void		print_padding(t_flags *flag, t_counter *count, int len);
 int			ft_putnbr(t_counter *count, int n);
-int			ft_putnbr_unsg(t_counter *count, int n);
+int			ft_putnbr_unsg(t_counter *count, unsigned int n);
 void		ft_putstr(t_counter *count, char *str, int len);
 
 void		init_flag(t_flags *flag);
