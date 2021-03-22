@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:58:09 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 21:17:44 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 22:39:51 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int			read_number(t_flags *flag, t_counter *count, const char *input)
 {
+	flag->read_number = 0;
 	if (ft_isdigit((int)input[count->i]))
 	{
 		while (ft_isdigit((int)input[count->i]))
@@ -30,6 +31,7 @@ int			read_number(t_flags *flag, t_counter *count, const char *input)
 
 void		is_it_star(va_list args, t_flags *flag, t_counter *count, const char *input)
 {
+	flag->read_star = 0;
 	flag->read_star = va_arg(args, int);
 	if (input[count->i - 1] == '.' )
 	{

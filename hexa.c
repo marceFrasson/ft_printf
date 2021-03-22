@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:25 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 22:24:47 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 22:38:41 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void		print_flag_x_X(va_list args, t_flags *flag, t_counter *count, int ch)
 			print_padding(flag, count, flag->width - flag->precision);
     }
     else
+    {
         print_padding(flag, count, flag->width - flag->precision);
+	}
 	free(str);
 }
 
