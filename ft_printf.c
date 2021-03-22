@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 22:49:35 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 22:48:05 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 22:54:07 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,10 @@ int			ft_printf(const char *input, ...)
 			which_format(args, &count, input);
 		}
 		else
-		 	ft_putchar(&count, input[count.i++]);
+		{
+		 	ft_putchar(&count, input[count.i]);
+			count.i++;
+		}
 	}
 	va_end(args);
 	return (count.len);
