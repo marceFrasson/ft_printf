@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 22:49:35 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 03:00:28 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 03:08:08 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void		which_format(va_list args, t_counter *count, const char *input)
 		else if (read_number(&flag, count, input) == 1)
 		{
 			flag.precision = flag.read_number;
-			if (input[count->j + 1] != '%')
+			if (input[count->j] != '%')
 			{
 				flag.zero = 0;
 				flag.padding = ' ';
@@ -77,7 +77,7 @@ void		which_format(va_list args, t_counter *count, const char *input)
 		else
 		{
 			flag.precision = 0;
-			if (input[count->j + 1] != '%')
+			if (input[count->j ] != '%')
 			{
 				flag.zero = 0;
 				flag.padding = ' ';
