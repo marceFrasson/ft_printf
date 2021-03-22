@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:54 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/21 22:17:17 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/21 23:52:00 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void		print_flag_d_i(va_list args, t_flags *flag, t_counter *count)
 				ft_putchar(count, '-');
 			print_padding(flag, count, flag->width - flag->precision);
 		}
-		if (flag->is_negative == 1)
+		if (flag->is_negative == 1 && flag->dash == 1)
 			ft_putchar(count, '-');
 		print_zero(count, flag->precision - int_len(ch));
 		ft_putnbr(count, ch);
