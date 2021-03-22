@@ -1,63 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_a.c                                          :+:      :+:    :+:   */
+/*   utils_c.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/21 20:46:34 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 03:41:42 by mfrasson         ###   ########.fr       */
+/*   Created: 2021/03/22 03:31:55 by mfrasson          #+#    #+#             */
+/*   Updated: 2021/03/22 03:43:07 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			ft_isdigit(int c)
+void		init_flag(t_flags *flag)
 {
-	return (c >= '0' && c <= '9');
+	flag->padding = ' ';
+	flag->precision = -1;
+	flag->is_negative = 0;
+	flag->width = 0;
+	flag->dash = 0;
+	flag->zero = 0;
+	flag->read_number = 0;
+	flag->read_star = 0;
 }
 
-int			int_len(int num)
-{
-	int i;
-
-	i = 1;
-	if (num < 0)
-		i++;
-	while (num >= 10 || num <= -10)
-	{
-		num /= 10;
-		i++;
-	}
-	return (i);
-}
-
-size_t		ft_strlen(const char *str)
+void		print_zero(t_counter *count, int len)
 {
 	int i;
 
 	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-int			ft_toupper(int c)
-{
-	if (c >= 'a' && c <= 'z')
-		c -= 32;
-	return (c);
-}
-
-int			unsgn_int_len(unsigned int num)
-{
-	unsigned int i;
-
-	i = 1;
-	while (num >= 10)
+	while (i < len)
 	{
-		num /= 10;
+		write(1, "0", 1);
+		count->len++;
 		i++;
 	}
-	return (i);
 }

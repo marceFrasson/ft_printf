@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 22:49:35 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 03:08:08 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 03:56:34 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,51 @@ void		which_flag(va_list args, t_flags *flag,
 							t_counter *count, const char *input)
 {
 	if (input[count->j] == 'c')
-        print_flag_c(flag, count, (va_arg(args, int)));
-    else if (input[count->j] == 's')
-        print_flag_s(args, flag, count);
-    else if (input[count->j] == 'd' || input[count->j] == 'i')
-        print_flag_d_i(args, flag, count);
-    else if (input[count->j] == 'u')
-        print_flag_u(args, flag, count);
-    else if (input[count->j] == 'x')
-        print_flag_x_X(args, flag, count, 0);
-    else if (input[count->j] == 'X')
-        print_flag_x_X(args, flag, count, 1);
-    else if (input[count->j] == 'p')
-        print_flag_p(args, flag, count);
-    else if (input[count->j] == '%')
-         print_flag_c(flag, count, '%');
-    else
-       ft_putchar(count, '%');
+		print_flag_c(flag, count, (va_arg(args, int)));
+	else if (input[count->j] == 's')
+		print_flag_s(args, flag, count);
+	else if (input[count->j] == 'd' || input[count->j] == 'i')
+		print_flag_d_i(args, flag, count);
+	else if (input[count->j] == 'u')
+		print_flag_u(args, flag, count);
+	else if (input[count->j] == 'x')
+		print_flag_x_xl(args, flag, count, 0);
+	else if (input[count->j] == 'X')
+		print_flag_x_xl(args, flag, count, 1);
+	else if (input[count->j] == 'p')
+		print_flag_p(args, flag, count);
+	else if (input[count->j] == '%')
+		print_flag_c(flag, count, '%');
+	else
+		ft_putchar(count, '%');
+}
+
+void		which_format_a(va_list args, t_counter *count, const char *input)
+{
+	if (input[count->j] == '.')
+	{
+		count->j++;
+		if (input[count->j] == '*')
+			is_it_star(args, &flag, count, input);
+		else if (read_number(&flag, count, input) == 1)
+		{
+			flag.precision = flag.read_number;
+			if (input[count->j] != '%')
+			{
+				flag.zero = 0;
+				flag.padding = ' ';
+			}
+		}
+		else
+		{
+			flag.precision = 0;
+			if (input[count->j] != '%')
+			{
+				flag.zero = 0;
+				flag.padding = ' ';
+			}
+		}
+	}
 }
 
 void		which_format(va_list args, t_counter *count, const char *input)
@@ -60,38 +88,14 @@ void		which_format(va_list args, t_counter *count, const char *input)
 		is_it_star(args, &flag, count, input);
 	else if (read_number(&flag, count, input) == 1)
 		flag.width = flag.read_number;
-	if (input[count->j] == '.')
-	{
-		count->j++;
-		if (input[count->j] == '*')
-			is_it_star(args, &flag, count, input);
-		else if (read_number(&flag, count, input) == 1)
-		{
-			flag.precision = flag.read_number;
-			if (input[count->j] != '%')
-			{
-				flag.zero = 0;
-				flag.padding = ' ';
-			}
-		}
-		else
-		{
-			flag.precision = 0;
-			if (input[count->j ] != '%')
-			{
-				flag.zero = 0;
-				flag.padding = ' ';
-			}
-		}
-
-	}
+	which_format_a(args, &flag, count);
 	which_flag(args, &flag, count, input);
 }
 
 int			ft_printf(const char *input, ...)
 {
-	va_list args;
-	t_counter count;
+	va_list		args;
+	t_counter	count;
 
 	va_start(args, input);
 	count.i = 0;
@@ -106,7 +110,7 @@ int			ft_printf(const char *input, ...)
 		}
 		else
 		{
-		 	ft_putchar(&count, input[count.i]);
+			ft_putchar(&count, input[count.i]);
 			count.i++;
 		}
 	}

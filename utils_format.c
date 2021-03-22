@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:58:09 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 03:07:53 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 03:54:06 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,26 @@ int			read_number(t_flags *flag, t_counter *count, const char *input)
 		return (0);
 }
 
-void		is_it_star(va_list args, t_flags *flag, t_counter *count, const char *input)
+void		is_it_star_a(va_list args, t_flags *flag,
+							t_counter *count, const char *input)
+{
+	if (flag->read_star < 0)
+	{
+		flag->width = flag->read_star * -1;
+		flag->dash = 1;
+		flag->zero = 0;
+		flag->padding = ' ';
+	}
+	else
+		flag->width = flag->read_star;
+}
+
+void		is_it_star(va_list args, t_flags *flag,
+							t_counter *count, const char *input)
 {
 	flag->read_star = 0;
 	flag->read_star = va_arg(args, int);
-	if (input[count->j - 1] == '.' )
+	if (input[count->j - 1] == '.')
 	{
 		if (flag->read_star >= 0)
 		{
@@ -46,16 +61,6 @@ void		is_it_star(va_list args, t_flags *flag, t_counter *count, const char *inpu
 		}
 	}
 	else
-	{
-		if (flag->read_star < 0)
-		{
-			flag->width = flag->read_star * -1;
-			flag->dash = 1;
-			flag->zero = 0;
-			flag->padding = ' ';
-		}
-		else
-			flag->width = flag->read_star;
-	}
+		is_it_star_a(flag, count, input);
 	count->j++;
 }
