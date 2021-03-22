@@ -6,11 +6,37 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:25 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 04:23:27 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 11:54:02 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+char    	*ft_hconvert(unsigned long int nbr, char *base)
+{
+    char                    *converted;
+    int                     base_len;
+    unsigned long int       i;
+    int                     size;
+
+    base_len = ft_strlen(base);
+    i = nbr;
+    size = 1;
+    while (i /= base_len)
+        size++;
+    converted = (char *)malloc(size + 1);
+    if (converted == NULL)
+        return (NULL);
+    converted[size--] = '\0';
+    if (nbr == 0)
+        converted[size] = '0';
+    while (nbr > 0)
+    {
+        converted[size--] = base[nbr % base_len];
+        nbr /= base_len;
+    }
+    return (converted);
+}
 
 void		print_flag_x_xl(va_list args, t_flags *flag,
 									t_counter *count, int ch)
@@ -19,7 +45,7 @@ void		print_flag_x_xl(va_list args, t_flags *flag,
 	int		j;
 
 	j = 0;
-	str = ft_itoa_hex(va_arg(args, unsigned int));
+	str = ft_hconvert(va_arg(args, unsigned long int), HEX_LOWER);
 	if (!(*str == '0' && flag->precision == 0))
 	{
 		if (ch)
@@ -62,7 +88,7 @@ void		print_flag_p(va_list args, t_flags *flag, t_counter *count)
 {
 	char *str;
 
-	str = ft_itoa_hex(va_arg(args, unsigned long int));
+	str = ft_hconvert(va_arg(args, unsigned long int), HEX_LOWER);
 	if (!(*str == '0' && flag->precision == 0))
 	{
 		if (flag->precision < (int)ft_strlen(str))

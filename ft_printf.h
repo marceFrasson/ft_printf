@@ -6,7 +6,7 @@
 /*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:00:08 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 03:41:06 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/03/22 11:47:50 by mfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stdarg.h>
 # include <stdint.h>
 # include <string.h>
+
+# define HEX_UPPER    "0123456789ABCDEF"
+# define HEX_LOWER    "0123456789abcdef"
 
 typedef struct	s_flags
 {
@@ -80,6 +83,7 @@ int				int_len(int num);
 int				unsgn_int_len(unsigned int num);
 void			print_zero(t_counter *count, int len);
 
-char			*ft_itoa_hex(unsigned long int number);
+char			*ft_itoa_hex(t_counter *count, unsigned long int number);
+char		    *ft_hconvert(unsigned long int nbr, char *base);
 
 #endif
