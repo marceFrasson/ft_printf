@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: marce <marce@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 22:49:35 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 12:37:57 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/07/17 20:10:34 by marce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		which_flag(va_list args, t_flags *flag,
-							t_counter *count, const char *input)
+void	which_flag(va_list args, t_flags *flag,
+	t_counter *count, const char *input)
 {
 	if (input[count->j] == 'c')
 		print_flag_c(flag, count, (va_arg(args, int)));
@@ -35,8 +35,8 @@ void		which_flag(va_list args, t_flags *flag,
 		ft_putchar(count, '%');
 }
 
-void		which_format_a(va_list args, t_flags *flag,
-								t_counter *count, const char *input)
+void	which_format_a(va_list args, t_flags *flag,
+	t_counter *count, const char *input)
 {
 	if (input[count->j] == '.')
 	{
@@ -64,9 +64,9 @@ void		which_format_a(va_list args, t_flags *flag,
 	}
 }
 
-void		which_format(va_list args, t_counter *count, const char *input)
+void	which_format(va_list args, t_counter *count, const char *input)
 {
-	t_flags flag;
+	t_flags	flag;
 
 	init_flag(&flag);
 	count->j = count->i;
@@ -93,7 +93,7 @@ void		which_format(va_list args, t_counter *count, const char *input)
 	which_flag(args, &flag, count, input);
 }
 
-int			ft_printf(const char *input, ...)
+int	ft_printf(const char *input, ...)
 {
 	va_list		args;
 	t_counter	count;

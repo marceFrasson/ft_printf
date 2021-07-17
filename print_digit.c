@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   print_digit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: marce <marce@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:54 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 12:04:06 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/07/17 20:05:27 by marce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		print_flag_d_i_a(t_flags *flag, t_counter *count, int ch)
+void	print_flag_d_i_a(t_flags *flag, t_counter *count, int ch)
 {
 	if (flag->dash == 0)
 	{
@@ -29,9 +29,9 @@ void		print_flag_d_i_a(t_flags *flag, t_counter *count, int ch)
 		print_padding(flag, count, flag->width - flag->precision);
 }
 
-void		print_flag_d_i(va_list args, t_flags *flag, t_counter *count)
+void	print_flag_d_i(va_list args, t_flags *flag, t_counter *count)
 {
-	int ch;
+	int	ch;
 
 	ch = va_arg(args, int);
 	if (ch == INT_MIN)
@@ -56,9 +56,9 @@ void		print_flag_d_i(va_list args, t_flags *flag, t_counter *count)
 	count->i = count->j + 1;
 }
 
-void		print_flag_u(va_list args, t_flags *flag, t_counter *count)
+void	print_flag_u(va_list args, t_flags *flag, t_counter *count)
 {
-	unsigned int ch;
+	unsigned int	ch;
 
 	ch = va_arg(args, unsigned int);
 	if (!(ch == 0 && flag->precision == 0))

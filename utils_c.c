@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils_c.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: marce <marce@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 03:31:55 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 03:43:07 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/07/17 20:04:38 by marce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		init_flag(t_flags *flag)
+void	init_flag(t_flags *flag)
 {
 	flag->padding = ' ';
 	flag->precision = -1;
@@ -24,9 +24,9 @@ void		init_flag(t_flags *flag)
 	flag->read_star = 0;
 }
 
-void		print_zero(t_counter *count, int len)
+void	print_zero(t_counter *count, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len)

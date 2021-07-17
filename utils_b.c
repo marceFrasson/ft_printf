@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   utils_b.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: marce <marce@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:52:21 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 03:42:24 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/07/17 20:09:45 by marce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_putchar(t_counter *count, char c)
+void	ft_putchar(t_counter *count, char c)
 {
 	write(1, &c, 1);
 	count->len++;
 }
 
-void		print_padding(t_flags *flag, t_counter *count, int len)
+void	print_padding(t_flags *flag, t_counter *count, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len)
@@ -30,10 +30,10 @@ void		print_padding(t_flags *flag, t_counter *count, int len)
 	}
 }
 
-int			ft_putnbr(t_counter *count, int n)
+int	ft_putnbr(t_counter *count, int n)
 {
-	unsigned	i;
-	int			j;
+	unsigned int	i;
+	int				j;
 
 	j = 1;
 	if (n < 0)
@@ -49,10 +49,10 @@ int			ft_putnbr(t_counter *count, int n)
 	return (j);
 }
 
-int			ft_putnbr_unsg(t_counter *count, unsigned int n)
+int	ft_putnbr_unsg(t_counter *count, unsigned int n)
 {
-	unsigned	i;
-	unsigned	j;
+	unsigned int	i;
+	unsigned int	j;
 
 	j = 1;
 	if (n < 0)
@@ -68,7 +68,7 @@ int			ft_putnbr_unsg(t_counter *count, unsigned int n)
 	return (j);
 }
 
-void		ft_putstr(t_counter *count, char *str, int len)
+void	ft_putstr(t_counter *count, char *str, int len)
 {
 	int	i;
 

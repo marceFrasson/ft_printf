@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: marce <marce@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:00:08 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 12:57:25 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/07/17 20:07:13 by marce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 # define HEX_LOWER    "0123456789abcdef"
 
-typedef struct	s_flags
+typedef struct s_flags
 {
 	char		padding;
 	int			precision;
@@ -34,14 +34,14 @@ typedef struct	s_flags
 	int			is_negative;
 }				t_flags;
 
-typedef struct	s_counter
+typedef struct s_counter
 {
 	int			i;
 	int			j;
 	int			len;
 }				t_counter;
 
-typedef	struct	s_itoa_hex
+typedef struct s_itoa_hex
 {
 	char		*hex;
 	int			to_hex;
@@ -53,11 +53,11 @@ typedef	struct	s_itoa_hex
 int				ft_printf(const char *input, ...);
 void			which_format(va_list args, t_counter *count, const char *input);
 void			which_flag(va_list args, t_flags *flag,
-							t_counter *count, const char *input);
+					t_counter *count, const char *input);
 
 int				read_number(t_flags *flag, t_counter *count, const char *input);
 void			is_it_star(va_list args, t_flags *flag,
-							t_counter *count, const char *input);
+					t_counter *count, const char *input);
 
 void			print_flag_c(t_flags *flag, t_counter *count, int ch);
 void			print_flag_s(va_list args, t_flags *flag, t_counter *count);
@@ -66,7 +66,7 @@ void			print_flag_d_i(va_list args, t_flags *flag, t_counter *count);
 void			print_flag_u(va_list args, t_flags *flag, t_counter *count);
 
 void			print_flag_x_xl(va_list args, t_flags *flag,
-								t_counter *count, int ch);
+					t_counter *count, int ch);
 void			print_flag_p(va_list args, t_flags *flag, t_counter *count);
 
 void			ft_putchar(t_counter *count, char c);

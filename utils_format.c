@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils_format.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: marce <marce@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:58:09 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 04:22:42 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/07/17 20:07:59 by marce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			read_number(t_flags *flag, t_counter *count, const char *input)
+int	read_number(t_flags *flag, t_counter *count, const char *input)
 {
 	flag->read_number = 0;
 	if (ft_isdigit((int)input[count->j]))
@@ -20,7 +20,7 @@ int			read_number(t_flags *flag, t_counter *count, const char *input)
 		while (ft_isdigit((int)input[count->j]))
 		{
 			flag->read_number = (flag->read_number * 10)
-										+ (int)input[count->j] - '0';
+				+ (int)input[count->j] - '0';
 			count->j++;
 		}
 		return (1);
@@ -42,8 +42,8 @@ static void	is_it_star_a(t_flags *flag)
 		flag->width = flag->read_star;
 }
 
-void		is_it_star(va_list args, t_flags *flag,
-							t_counter *count, const char *input)
+void	is_it_star(va_list args, t_flags *flag,
+	t_counter *count, const char *input)
 {
 	flag->read_star = 0;
 	flag->read_star = va_arg(args, int);

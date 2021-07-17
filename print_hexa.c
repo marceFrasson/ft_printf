@@ -3,27 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   print_hexa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfrasson <mfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: marce <marce@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:55:25 by mfrasson          #+#    #+#             */
-/*   Updated: 2021/03/22 12:58:49 by mfrasson         ###   ########.fr       */
+/*   Updated: 2021/07/17 20:04:13 by marce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*ft_hconvert(unsigned long int nbr, char *base)
+static int	loop(unsigned long int i, int base_len, int size)
 {
-	char					*converted;
-	int						base_len;
-	unsigned long int		i;
-	int						size;
+	while (i)
+	{
+		i /= base_len;
+		size++;
+	}
+	size--;
+	return (size);
+}
+
+char	*ft_hconvert(unsigned long int nbr, char *base)
+{
+	char				*converted;
+	int					base_len;
+	unsigned long int	i;
+	int					size;
 
 	base_len = ft_strlen(base);
 	i = nbr;
 	size = 1;
-	while (i /= base_len)
-		size++;
+	size = loop(i, base_len, size);
 	converted = (char *)malloc(size + 1);
 	if (converted == NULL)
 		return (NULL);
@@ -38,8 +48,8 @@ char		*ft_hconvert(unsigned long int nbr, char *base)
 	return (converted);
 }
 
-void		print_flag_x_xl(va_list args, t_flags *flag,
-									t_counter *count, int ch)
+void	print_flag_x_xl(va_list args, t_flags *flag,
+	t_counter *count, int ch)
 {
 	char	*str;
 	int		j;
@@ -84,9 +94,9 @@ static void	print_flag_p_a(t_flags *flag, t_counter *count, char *str)
 		print_padding(flag, count, flag->width - flag->precision - 2);
 }
 
-void		print_flag_p(va_list args, t_flags *flag, t_counter *count)
+void	print_flag_p(va_list args, t_flags *flag, t_counter *count)
 {
-	char *str;
+	char	*str;
 
 	str = ft_hconvert(va_arg(args, unsigned long int), HEX_LOWER);
 	if (!(*str == '0' && flag->precision == 0))
